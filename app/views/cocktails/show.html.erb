@@ -1,2 +1,11 @@
-<h1>Cocktails#show</h1>
-<p>Find me in app/views/cocktails/show.html.erb</p>
+<h1><%= @cocktail.name %></h1>
+
+<ul>
+  <% @cocktail.doses.each do |dose| %>
+  <li><%= dose.description %> - <%= dose.ingredient.name %></li>
+  <%= link_to "Delete this (^) dose", coktail_doses_path(dose.id), method: "delete", data: { confirm: "Sure?" } %>
+  <% end %>
+</ul>
+
+<%= link_to "Add ingredients", new_cocktail_dose_path(@cocktail) %>
+<%= link_to "Back to cocktails list", cocktails_path %>
