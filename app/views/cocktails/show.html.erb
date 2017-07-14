@@ -3,7 +3,7 @@
 <ul>
   <% @cocktail.doses.each do |dose| %>
   <li><%= dose.description %> - <%= dose.ingredient.name %></li>
-  <%= link_to "Delete this (^) dose", coktail_doses_path(dose.id), method: "delete", data: { confirm: "Sure?" } %>
+  <%= link_to "Delete this (^) dose", cocktail_doses_path(dose.id), method: "delete", data: { confirm: "Sure?" } %>
   <% end %>
 </ul>
 
