@@ -1,5 +1,5 @@
 class DosesController < ApplicationController
-  before_action :set_cocktail
+  before_action :set_cocktail, except: [:destroy]
 
   def new
     @dose = Dose.new
@@ -15,7 +15,6 @@ class DosesController < ApplicationController
   end
 
   def destroy
-    @dose = @cocktail.doses.find(params[:id])
     @dose.destroy
 
     redirect_to cocktail_path(@cocktail)
